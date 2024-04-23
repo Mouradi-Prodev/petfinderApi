@@ -1,0 +1,22 @@
+
+<mat-toolbar>
+  <button mat-icon-button class="favorite-button" (click)="showFavorite()">
+    <mat-icon>favorite_border</mat-icon>
+    <span class="count">{{ count }}</span>
+  </button>
+  <a  routerLink="" routerLinkActive="active" class="logo"><span>{{title}}</span></a>
+  <span class="example-spacer"></span>
+  <div *ngIf="!isLoggedIn; else elseBlock">
+    <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
+    <a mat-button  routerLink="register" routerLinkActive="active">Register</a>
+  </div>
+  <ng-template #elseBlock>
+    <span>{{ User?.displayName }}</span>
+    <button (click)="signOut()" mat-icon-button class="example-icon logout-icon">
+      <mat-icon>logout</mat-icon>
+    </button>   
+  </ng-template>
+  
+</mat-toolbar>
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>

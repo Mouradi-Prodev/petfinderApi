@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "petfinder-60f88": {
+      "hosting": {
+        "Petfinder": [
+          "petfinder-60f88"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "petfinder-60f88"
+  }
+}

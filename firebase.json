@@ -1,0 +1,10 @@
+{
+  "hosting": [
+    {
+      "public": "dist/petfinder",
+      "target": "Petfinder",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content: center;
+  gap: 30px;
+  padding: 30px;
+}
+
+.card {
+  background-color: #55d5d5;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+}
+
+.content {
+  background: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+}
+
+.content h2 {
+  font-size: 30px;
+  color: #000307;
+  position: relative;
+}
+
+.content p {
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.content button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.content button:hover {
+  background-color: #2980b9;
+  cursor: pointer;
+}
+
+.zoom {
+  transition: transform 0.2s;
+}
+
+.zoom:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+
+.filter {
+  display: flex;
+  margin: 10px auto;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.filter button{
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.3s ease;
+  margin-left: 20px;
+}
+.mat-form-field {
+  margin-bottom: 20px;
+}
+
+
+button.favorite-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.favorite {
+  color: red; /* Or any other color you prefer for indicating favorite */
+}
+
+/*
+  
+  .card-container {
+    width: 90%; /* Adjust width as needed 
+    display: flex;
+    justify-content: center; /* Center the cards horizontally 
+    align-items: center; /* Center the cards vertically 
+    flex-wrap: wrap; /* Allow cards to wrap to the next line if necessary 
+    gap: 20px; /* Add some spacing between cards 
+    padding: 20px; /* Add some padding around the cards 
+  }
+  .example-card {
+    width: 290px; /* Set a fixed width for each card 
+    /* Add any other styles for the card as needed 
+   
+    
+  }*/

@@ -1,0 +1,98 @@
+<div class="filter">
+ 
+    <mat-form-field>
+      <mat-label>Types</mat-label>
+      <mat-select [formControl]="type_selected">
+        <mat-option value="">None</mat-option>
+        <!-- @for (type of Types; track type)  -->
+          <mat-option *ngFor="let type of Types" [value]="type.name" (click)="getBreeds(type._links.breeds.href)">{{type.name}}</mat-option>
+        
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="type_selected.value">
+      <mat-label>Breeds</mat-label>
+      <mat-select  [formControl]="breed_selected">
+        <mat-option value="">None</mat-option>
+      
+          <mat-option *ngFor="let breed of Breeds" [value]="breed.name">{{breed.name}}</mat-option>
+        
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field  *ngIf="type_selected.value">
+      <mat-label>Genders</mat-label>
+      <mat-select [formControl]="gender_selected">
+        
+          <mat-option *ngFor="let gender of Genders" [value]="gender">{{gender}}</mat-option>
+        
+      </mat-select>
+    </mat-form-field>
+    
+    <button mat-button (click)="Filter()">Filter</button>
+
+    
+
+
+</div>
+<div class="card-container" >
+  <div class="card zoom" *ngFor="let animal of Animals">
+    <img *ngIf="animal.photos.length > 0" src="{{animal.photos[0].small}}" alt="{{animal.description}}">
+    <img *ngIf="animal.photos.length == 0" src="https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*" alt="">
+    <div class="content">
+      <h2>{{ animal.name}}</h2>
+      <p>{{ animal.description }}</p>
+      <a href="{{animal.url}}" target="_blank"><button>Learn more</button></a>
+    </div>
+    <button mat-icon-button class="favorite-button" [ngClass]="{'favorite': isFavorite(animal)}"  (click)="addToFavorites(animal)">
+      <mat-icon>{{ isFavorite(animal) ? 'favorite' : 'favorite_border' }}</mat-icon>
+    </button>
+  </div>
+</div>
+<!-- <div class="card-container">
+
+  <mat-card class="example-card zoom" *ngFor="let animal of Animals">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ animal.name }} - {{ animal.type }}</mat-card-title>
+      <mat-card-subtitle>{{ animal.breeds.primary}}</mat-card-subtitle>
+    </mat-card-header>
+
+      <img *ngIf="animal.photos.length > 0" mat-card-image src="{{animal.photos[0].small}}" 
+        alt="{{animal.description}}">
+
+
+    <mat-card-content>
+      <p truncate>
+        {{ animal.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>   
+       <mat-icon aria-hidden="false" matTooltip="Copy Url" (click)="CopyUrl(animal.url)"
+       aria-label="Button that displays a tooltip when focused or hovered over" icon-type="font">content_copy</mat-icon>
+      
+    </mat-card-actions>
+  </mat-card>
+
+</div> -->
+<div class="container">
+  <mat-paginator [length]="this.ResponseAnimals?.pagination?.total_count"
+   [pageSize]="this.Animals.length" (page)="handlePageEvent($event)"  aria-label="Select page">
+    <!-- pagination
+    : 
+    count_per_page
+    : 
+    20
+    current_page
+    : 
+    1
+    total_count
+    : 
+    283821
+    total_pages
+    : 
+    14192
+    _links
+    : 
+    {next: {…}} -->
+  </mat-paginator>
+</div>

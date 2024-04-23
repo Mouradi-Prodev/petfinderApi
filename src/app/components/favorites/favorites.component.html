@@ -1,0 +1,15 @@
+
+<div class="card-container" >
+    <div class="card zoom" *ngFor="let animal of Favorites">
+      <img *ngIf="animal['photos'].length > 0" src="{{animal['photos'][0].small}}" alt="{{animal['description']}}">
+      <img *ngIf="animal['photos'].length == 0" src="https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*" alt="">
+      <div class="content">
+        <h2>{{ animal['name']}}</h2>
+        <p>{{ animal['description'] }}</p>
+        <a href="{{animal['url']}}" target="_blank"><button>Learn more</button></a>
+      </div>
+      <button mat-icon-button class="favorite-button" [ngClass]="{'favorite': isFavorite(animal)}">
+        <mat-icon>{{ isFavorite(animal) ? 'favorite' : 'favorite_border' }}</mat-icon>
+      </button>
+    </div>
+  </div>

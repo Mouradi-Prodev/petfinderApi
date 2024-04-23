@@ -1,0 +1,10 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.logo{
+  color: rgb(19, 4, 104);
+  text-decoration: none;
+}
+.count{
+  font-size:15px;
+}

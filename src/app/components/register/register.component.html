@@ -1,0 +1,38 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Register</mat-card-title>
+      </mat-card-header>
+      <form [formGroup]="registrationForm" (ngSubmit)="signUp()">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" formControlName="username">
+            <mat-error *ngIf="registrationForm.get('username')?.hasError('required')">
+              Username is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="registrationForm.get('email')?.hasError('email')">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput type="password" placeholder="Password" formControlName="password">
+            <mat-error *ngIf="registrationForm.get('password')?.hasError('required')">
+              Password is required
+            </mat-error>
+            <mat-error *ngIf="registrationForm.get('password')?.hasError('minlength')">
+              min 8 characters required
+            </mat-error>
+          </mat-form-field>
+          <button mat-stroked-button color="accent" class="btn-block" type="submit">Register</button>
+        </mat-card-content>
+       
+      </form>
+    </mat-card>
+  </div>
+  
